@@ -7,7 +7,7 @@ package stockPriceIOT;
 
 import java.awt.Color;
 
-/**
+/**  Most settings can be modified here.
  *
  * @author Yiwen Zhang
  */
@@ -15,13 +15,15 @@ public class Settings {
 
     static final int FRAM_WIDTH = 1000;
     static final int FRAM_HEIGHT = 400;
-
+    static final int CHART_WIDTH = 96;
+    static final int CHART_HEIGHT = 96;
+    
     static final String FONT_NAME = "SERIF";
     static final int FONT_STYLE = 1;          //Bold style
     static final int FONT_SIZE = 80;
     
     static final Color FONT_COLOR = Color.BLUE;
-    static final Color BACKGROUND_COLOR = Color.GREEN;
+    static final Color BACKGROUND_COLOR = Color.orange;
     
     static final String STOCK_PRICE_REPORT_PATH = "rawText/priceData.txt";
 }

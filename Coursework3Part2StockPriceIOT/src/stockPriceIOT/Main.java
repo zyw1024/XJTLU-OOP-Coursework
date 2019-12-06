@@ -22,31 +22,19 @@ import javax.swing.Timer;
  * @author Yiwen Zhang
  */
 public class Main {
-
-    static ClockDisplay clockFace;
     static StockPriceDisplay stockPriceDisplay;
 
     public static void main(String[] args) {
-//        // Set the clock
-//        Clock clock = Clock.system(ZoneId.of("UTC+8"));
-//        Clock tickClock = Clock.tick(clock, Duration.ofSeconds(1));
-//        clockFace = new ClockDisplay(0, 0, 400, 600, tickClock);
-//        clockFace = new ClockDisplay(1000, 1000, 1000, 100, tickClock);
-//
-//        // Create a timer
-//        // Start ticking
-//        Timer timer = new Timer(1000, clockFace);
-//        timer.start();
-//
-//        // Set the weather
-//        Weather suzhouWeather = new Weather("Suzhou");
-//
-//        List<Displayable> clockDisplayables = clockFace.getListOfDisplayables();
-//        clockDisplayables.add(suzhouWeather);
-//
-
-//        stockPriceDisplay = new StockPriceDisplay("AAPL","YESTERDAY", 0, 0, 96, 96);
-        stockPriceDisplay = new StockPriceDisplay("AAPL","LAST_WEEK", 0, 0, 96, 96);
+        System.out.println("Hello from Yiwen...");
+        
+        // Set the date of today
+        LocalDate today = LocalDate.parse("2009-12-24");
+        
+        StockPriceDisplay stockPriceDisplay = new StockPriceDisplay(today);
+        StockPriceGraph stockPriceGraph = new StockPriceGraph(today, "AAPL", Settings.CHART_WIDTH, Settings.CHART_HEIGHT);
+        
+        List<Displayable> displayables = stockPriceDisplay.getListOfDisplayables();
+        displayables.add(stockPriceGraph);
         
         // Set the frame
         JFrame f = new JFrame();
@@ -54,10 +42,5 @@ public class Main {
         f.setSize(Settings.FRAM_WIDTH, Settings.FRAM_HEIGHT);
         f.setVisible(true);
         f.add(stockPriceDisplay);
-//        f.add(clockFace);
-        
-
-        
-
     }
 }

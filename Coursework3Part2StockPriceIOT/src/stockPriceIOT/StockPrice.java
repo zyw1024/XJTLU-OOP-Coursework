@@ -62,38 +62,4 @@ public class StockPrice {
     public double getVolume() {
         return this.volume;
     }
-
-    public static BufferedImage drawColunChart(int W, int H, int w, int h, double changeRate) {
-//        BufferedImage img = new BufferedImage(96, 96, BufferedImage.TYPE_INT_RGB);
-        BufferedImage img = new BufferedImage(96, 96, BufferedImage.BITMASK);
-        Graphics2D g2 = img.createGraphics();
-
-        g2.setColor(Color.black);
-        g2.drawRect(0, 0, W - 1, H - 1);
-        if (h < 0) {
-            // Price goes down, show green column
-            h = -1 * h;
-            g2.setColor(Color.green);
-            g2.drawRect(W / 2 - w / 2, H - h, w, h);
-            g2.fillRect(W / 2 - w / 2, H - h, w, h);
-        } else if (h > 0) {
-            // Price goes up, show red column
-            g2.setColor(Color.red);
-            g2.drawRect(W / 2 - w / 2, H - h, w, h);
-            g2.fillRect(W / 2 - w / 2, H - h, w, h);
-        }
-        
-        FontMetrics fm = g2.getFontMetrics();
-        String str = String.format("%.2f", changeRate / 0.01) + "%";
-//                Double.toString(changeRate);
-        int stringWidth = fm.stringWidth(str);
-        int stringDescent = fm.getMaxDescent();
-        g2.drawString(str, W / 2 - w / 2 - stringWidth / 3,
-                H - h - stringDescent);
-
-        return img;
-    }
-    
-
-
 }

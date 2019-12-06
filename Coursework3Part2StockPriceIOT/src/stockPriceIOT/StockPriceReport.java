@@ -20,6 +20,11 @@ public class StockPriceReport {
 
     public ArrayList<String> stockPriceList;
 
+    
+    /**Read the txt file to get raw report and save all lines into a list.
+     * 
+     * @param txtPath 
+     */
     public StockPriceReport(String txtPath) {
         stockPriceList = new ArrayList<>();
         File reportFile = new File(txtPath);

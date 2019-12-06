@@ -2,15 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Workspace/Netbeans/WheatherIOT/src/weatherIOT/DisplayHost.java</file>
-            <file>file:/C:/Workspace/Netbeans/WheatherIOT/src/weatherIOT/Weather.java</file>
-            <file>file:/C:/Workspace/Netbeans/WheatherIOT/src/weatherIOT/Displayable.java</file>
-            <file>file:/C:/Workspace/Netbeans/WheatherIOT/src/weatherIOT/ParseWheather.java</file>
-            <file>file:/C:/Workspace/Netbeans/WheatherIOT/src/weatherIOT/Settings.java</file>
-            <file>file:/C:/Workspace/Netbeans/WheatherIOT/src/weatherIOT/Icon.java</file>
-            <file>file:/C:/Workspace/Netbeans/WheatherIOT/src/weatherIOT/Main.java</file>
-            <file>file:/C:/Workspace/Netbeans/WheatherIOT/src/weatherIOT/ClockDisplay.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

@@ -21,10 +21,11 @@ public class ParseStockPrice {
     public StockPriceReport stockPriceReport;
     public ArrayList<StockPrice> allStockPriceList;
     public ArrayList<StockPrice> chosenStockPriceList;
-    
 
     /**
-     * Parse a report item and store the ticker, date, open, high, low, close, volume into a StockPrice object.
+     * Parse a report item and store the ticker, date, open, high, low, close,
+     * volume into a StockPrice object.
+     *
      * @param reportItem
      * @return stockPrice
      */
@@ -60,29 +61,34 @@ public class ParseStockPrice {
     }
 
     /**
-        Get the change rate of a company's stock price over a period.
-    */
-    public static double getPriceMovementOfPeriod(String period, String companyName, String stockPriceReportPath) {
+     * Get the change rate of a company's stock price of a date.
+     */
+    public static double getPriceMovementOfPeriod(LocalDate date, String companyName, String stockPriceReportPath) {
         ArrayList<StockPrice> chosenCompanyStockPriceList = getChosenCompanyStockPriceList(stockPriceReportPath, companyName);
         int listSize = chosenCompanyStockPriceList.size();
         double startPrice = 0;
         double endPrice = 0;
         double deltaPrice = 0;
         double changeRate = 0;
-        
-        if (period == "YESTERDAY") {
-            startPrice = chosenCompanyStockPriceList.get(listSize - 1).getOpen();
-            endPrice = chosenCompanyStockPriceList.get(listSize - 1).getClose();
-        } else if (period == "LAST_WEEK") {
-            startPrice = chosenCompanyStockPriceList.get(listSize - 8).getOpen();
-            endPrice = chosenCompanyStockPriceList.get(listSize - 1).getClose();
+        boolean isFindDate = false;
+
+        for (int i = 0; i < listSize; ++i) {
+            if (chosenCompanyStockPriceList.get(i).getDate().isEqual(date)) {
+                startPrice = chosenCompanyStockPriceList.get(i).getOpen();
+                endPrice = chosenCompanyStockPriceList.get(i).getClose();
+                isFindDate = true;
+            }
+        }
+
+        if (isFindDate) {
+            deltaPrice = endPrice - startPrice;
+            changeRate = deltaPrice / startPrice;
+            return changeRate;
         }
         else {
-            System.out.println("Error! The period must be \"YESTERDAY\" or \"LAST_WEEK\"!  ");
+            // The date does not exist. return error code 9999999.
+            return 9999999;
         }
-        
-        deltaPrice = endPrice - startPrice;
-        changeRate = deltaPrice / startPrice;
-        return changeRate;
+
     }
 }

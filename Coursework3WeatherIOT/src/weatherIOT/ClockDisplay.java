@@ -74,6 +74,8 @@ public class ClockDisplay extends JPanel implements ActionListener, DisplayHost 
         int timeWidth = metrics.stringWidth("00:00:00");
         
         // Draw time String
+        //g2.drawString(LocalTime.now(clock).toString(), Settings.FRAM_WIDTH/2 - timeWidth/2, this.getHeight()/2); // Using this line will not make String at the center when stretching the window
         g2.drawString(LocalTime.now(clock).toString(), this.getWidth()/2 - timeWidth/2, this.getHeight()/2);
+
     }
 }

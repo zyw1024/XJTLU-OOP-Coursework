@@ -22,7 +22,7 @@ public class Weather implements Displayable {
 
     private static final String urlString = "https://api.openweathermap.org/data/2.5/weather?q=";
     private final String city;    
-    private static final String id = "&appid=9a4b6e9ba21ca8926607319fabbc6bc1";
+    private static final String APIKey = "&appid=9a4b6e9ba21ca8926607319fabbc6bc1";
     private static final double K = 273.15; //kelvin to celsius
     public String report;
     public String iconID;
@@ -36,7 +36,7 @@ public class Weather implements Displayable {
     }
 
     public String getReport() {
-        String queryString = urlString + city + id;
+        String queryString = urlString + city + APIKey;
         URLConnection conn = null;
         String report = null;
 

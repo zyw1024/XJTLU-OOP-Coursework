@@ -20,7 +20,8 @@ public class Main {
         // Set the clock
         Clock clock = Clock.system(ZoneId.of("UTC+8"));
         Clock tickClock = Clock.tick(clock, Duration.ofSeconds(1));
-        clockFace = new ClockDisplay(0, 0, 400, 600, tickClock);
+//        clockFace = new ClockDisplay(0, 0, 400, 600, tickClock);
+        clockFace = new ClockDisplay(1000, 1000, 1000, 100, tickClock);
 
         // Create a timer
         // Start ticking
